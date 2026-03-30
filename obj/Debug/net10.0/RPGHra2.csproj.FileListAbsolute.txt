@@ -1,0 +1,14 @@
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\RPGHra2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\RPGHra2.AssemblyInfoInputs.cache
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\RPGHra2.AssemblyInfo.cs
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\RPGHra2.csproj.CoreCompileInputs.cache
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\bin\Debug\net10.0\RPGHra2.exe
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\bin\Debug\net10.0\RPGHra2.deps.json
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\bin\Debug\net10.0\RPGHra2.runtimeconfig.json
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\bin\Debug\net10.0\RPGHra2.dll
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\bin\Debug\net10.0\RPGHra2.pdb
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\RPGHra2.dll
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\refint\RPGHra2.dll
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\RPGHra2.pdb
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\RPGHra2.genruntimeconfig.cache
+C:\Users\marek\RiderProjects\RPGHra2\RPGHra2\obj\Debug\net10.0\ref\RPGHra2.dll
