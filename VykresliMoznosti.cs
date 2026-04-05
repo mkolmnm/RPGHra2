@@ -1,4 +1,6 @@
-﻿namespace RPGHra2
+﻿using System.Globalization;
+
+namespace RPGHra2
 {
 
 
@@ -33,12 +35,23 @@
                     }
                 }
 
+                
+                if (titulek.Contains("Hrdinu")) 
+                {
+                    Console.WriteLine("\n--- STATISTIKY ---");
+                    if (vybranyIndex == 0) Console.WriteLine("Health: 100      |    Power: 10    |   Defence: 10");//W
+                    if (vybranyIndex == 1) Console.WriteLine("Health: 30       |    Mana: 100    |  Strength: 10");//M
+                    if (vybranyIndex == 2) Console.WriteLine("Health: 50       | FirePower: 15.5 |   Defence: 8");//A
+                }
                 klavesa = Console.ReadKey(true).Key;
 
                 if (klavesa == ConsoleKey.UpArrow && vybranyIndex > 0)
                     vybranyIndex--;
                 else if (klavesa == ConsoleKey.DownArrow && vybranyIndex < moznosti.Length - 1)
                     vybranyIndex++;
+                
+
+                
 
             } while (klavesa != ConsoleKey.Enter);
 
