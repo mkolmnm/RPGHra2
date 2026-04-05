@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace RPGHra2
 {
@@ -7,42 +8,45 @@ namespace RPGHra2
     {
         static void Main()
         {
-            string[] menuPrvni = { "Play", "Choose a Character", "Exit" };
-            int volbaPohyb = RPGHra2.Moznosti.VykresliMoznosti(menuPrvni, "Kam chceš jít?");
-            switch (volbaPohyb)
+            Character vybranyHrdina = null;
+            bool konecHry = false;
+            while (!konecHry)
             {
-                case 0:
-                    //Vypsani hry
-                    while (true)
-                    {
-                        Console.WriteLine("Hra");
-                    }
-                    break;  
-                                        
-                case 1:
-                    //Vybrani charakteru
-                    while (true)
-                    {
-                        Console.WriteLine("Vyber charakter!");
-                    }
-                    
-                    break;
-                case 2:
-                    Console.WriteLine("Konec");
-                    break;
+
+
+                string[] menuPrvni = { "Play", "Choose a Character", "Exit" };
+                int volbaPohyb = RPGHra2.Moznosti.VykresliMoznosti(menuPrvni, "Vítej!");
+                switch (volbaPohyb)
+                {
+                    case 0:
+                        Console.Clear();
+                        if (vybranyHrdina == null)
+                        {
+                            Console.WriteLine("Napred si vyber hrdinu!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Máš vybraného: {vybranyHrdina.GetType().Name}!");
+                            Console.WriteLine("Hra běží...");
+                        }
+                        Console.WriteLine("\nStiskni libovolnou klávesu pro návrat do menu...");
+                        Console.ReadKey(true);
+                        break;
+
+                    case 1:
+                        vybranyHrdina = RPGHra2.HrdinaLogika.VyberPostavu();
+                        Console.WriteLine($"Vybral sis hrdinu: {vybranyHrdina}!");
+                        break;
+                    case 2:
+                        Console.WriteLine("Konec");
+                        konecHry = true;
+                        break;
+                }
+                
+                
+                
+                
             }
-        }
-        public static void VypisZadaní(string text)
-        {
-            Console.WriteLine();
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.ForegroundColor = ConsoleColor.Black;
-
-            Console.WriteLine($"| {text} |");
-
-            Console.ResetColor();
-            Console.WriteLine("\n(Stiskni libovolnou klávesu pro pokračování...)");
-            Console.ReadKey(true);
         }
     }   
        

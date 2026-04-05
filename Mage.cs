@@ -2,6 +2,7 @@
 
 public class Mage : Character
 {
+    public string name = "Mage";
     public Mage()
     {
         _maxHealth = 30;

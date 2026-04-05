@@ -2,6 +2,8 @@
 
 public class Warrior : Character
 {
+    public string name = "Warrior";
+    
     public Warrior()
     {
         _maxHealth = 100;
