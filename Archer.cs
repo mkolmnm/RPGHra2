@@ -1,29 +1,12 @@
 ﻿namespace RPGHra2;
 
-public class Archer
+public class Archer : Character
 {
-    private int _maxHealth = 50;//50 životů na začátku
-    public int health
+    public Archer()
     {
-        get => _maxHealth;
-        set
-        {
-            if (value > 100)
-            {
-                value = 100;
-            }
-            else if (value <= 0)
-            {
-                value = 0;
-                Console.WriteLine("Měl bys umřít!!!");
-            }
-            else
-            {
-                _maxHealth = value;
-            }
-        }
-        
+        _maxHealth = 50;
+        _currentHealth = 50;
+        firePower = 15.5f;
     }
     public float firePower{get;set;}
-    public int defence{get;set;}
 }

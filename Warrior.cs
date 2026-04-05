@@ -1,30 +1,15 @@
 ﻿namespace RPGHra2;
 
-public class Warrior
+public class Warrior : Character
 {
-    private int _maxHealth = 100;//100 životů na začátku
-
-    public int health
+    public Warrior()
     {
-        get => _maxHealth;
-        set
-        {
-            if (value > 100)
-            {
-                value = 100;
-            }
-            else if (value <= 0)
-            {
-                value = 0;
-                Console.WriteLine("Měl bys umřít!!!");
-            }
-            else
-            {
-                _maxHealth = value;
-            }
-        }
+        _maxHealth = 100;
+        _currentHealth = 100;
+        power = 10f;
+        defence = 10f;
     }
 
-    public float power { get; set; }
-    public float defence { get; set;}
+    private float power { get; set; }
+    private float defence { get; set;}
 }

@@ -1,31 +1,12 @@
 ﻿namespace RPGHra2;
 
-public class Mage
+public class Mage : Character
 {
-    private int _maxHealth = 30;//30 životů na začátku
-
-    public int health
+    public Mage()
     {
-        get => _maxHealth;
-        set
-        {
-            if (value > 100)
-            {
-                value = 100;
-            }
-            else if (value <= 0)
-            {
-                value = 0;
-                Console.WriteLine("Měl bys umřít!!!");
-            }
-            else
-            {
-                _maxHealth = value;
-            }
-        }
+        _maxHealth = 30;
+        _currentHealth = 30;
+        mana = 100;
     }
-
-    public int strenght;
     public int mana;
-    public int defence;
 }
