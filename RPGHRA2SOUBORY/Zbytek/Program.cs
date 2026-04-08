@@ -23,14 +23,25 @@ namespace RPGHra2
                         if (vybranyHrdina == null)
                         {
                             Console.WriteLine("Napred si vyber hrdinu!");
+                            Console.WriteLine("\nStiskni libovolnou klávesu pro návrat do menu...");
+                            Console.ReadKey(true);
                         }
                         else
                         {
                             Console.WriteLine($"Máš vybraného: {vybranyHrdina.GetType().Name}!");
                             Console.WriteLine("Hra běží...");
+                            int Hrabezi1 = 2;
+                            switch (Hrabezi1)
+                            {
+                                case 0:
+                                    return;
+                                    
+                                case 1: 
+                                return;
+                            }
+                            
                         }
-                        Console.WriteLine("\nStiskni libovolnou klávesu pro návrat do menu...");
-                        Console.ReadKey(true);
+                       
                         break;
 
                     case 1:
