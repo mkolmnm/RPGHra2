@@ -2,6 +2,8 @@
 
 public class Bat : Enemy
 {
+    private static readonly Random _rng = new Random();
+    private int _atackDamage = 4;
     public Bat()
     {
         Random rnd = new Random();
@@ -13,17 +15,13 @@ public class Bat : Enemy
     }
     public override void EnemyAtack(Character target)
     {
-        Random rng = new Random();
-        Random rng2 = new Random();
-        int x = rng.Next(0, 1);
-        int y = rng2.Next(0, 1);
-        if (x == 0)//50% šance
+        if (_rng.Next(0,2) == 0)//50% šance
         {
-            target.Health -= 4;           
+            target.Health -= _atackDamage;           
         }
-        if (y == 0)//50% šance
+        if (_rng.Next(0,2) == 0)//50% šance
         {
-            target.Health -= 4;           
+            target.Health -= _atackDamage;           
         }
     }
 }
