@@ -3,27 +3,41 @@
 public class Mage : Character
 {
     private int _damage = 5;
+    private int _manaCost = 10;
+
+    public int Mana { get; set; } = 100;
+    public string Name { get; set; } = "Mage";
+
     public override int Damage
     {
-        get => _damage;
-        set
+        get
         {
-            if (useMana = true)
+            if (Mana >= _manaCost)
             {
-                value + mana = _damage;
+                Mana -= _manaCost;
+                return _damage + _manaCost;
             }
-        }//pozdeji na debuffy
+            else if (Mana > 0)
+            {
+                int zbytek = Mana;
+                Mana = 0;
+                return _damage + zbytek;
+            }
+            else
+            {
+                Console.WriteLine("No mana, utok bez many");
+                return _damage;
+            }
+        }
+        set{ }
+        //pozdeji na debuffy
     }
     public string name = "Mage";
     public Mage()
     {
         _maxHealth = 30;
         currentHealth = 30;
-        mana = 100;
-        bool useMana = false;
     }
 
-    public int mana { get; set; } = 100;
-    public int usedMana;
 
 }
