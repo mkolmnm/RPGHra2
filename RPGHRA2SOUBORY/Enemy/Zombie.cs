@@ -5,7 +5,7 @@ public class Zombie : Enemy
     private int _damage;
     public override int Damage { 
         get => _damage;
-        set { }//pozdeji na debuffy
+        set { }
     }
     
     public Zombie()
