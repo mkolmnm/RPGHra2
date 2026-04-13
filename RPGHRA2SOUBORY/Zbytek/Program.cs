@@ -53,7 +53,6 @@ namespace RPGHra2
 
                             Console.ReadKey(true);
                         }
-
                         break;
 
                     case 1:

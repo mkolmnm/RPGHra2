@@ -7,6 +7,7 @@ public abstract class Character
     public int XPToNextLevel => Level * 30;
     public int currentHealth;
     protected int _maxHealth;
+    public virtual int Defence { get; set; } = 0; 
 
     public void PridejXP(int xp)
     {
@@ -36,14 +37,19 @@ public abstract class Character
             else if (value <= 0)
             {
                 currentHealth = 0;
-                Console.WriteLine("Měl bys umřít!!!");
-            }
+            }            
             else
             {
                 currentHealth = value;
             }
         }
     }
+    
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+    }
+    
     public abstract int Damage{get;set;}
 
 }

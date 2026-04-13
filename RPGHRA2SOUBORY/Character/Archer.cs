@@ -1,20 +1,23 @@
-﻿namespace RPGHra2;
+﻿using System.Transactions;
+
+namespace RPGHra2;
 
 public class Archer : Character
 {
     private static readonly Random _rnd = new Random();
     
     private int _damage = 8;
-    public override int Damage { 
-        get => _damage;
-        set
+    public override int Damage {
+        get
         {
-            if (_rnd.Next(0, 10) < 4)//30% šance
+            if (_rnd.Next(0, 100) < 30)//30% šance
             {
-                _damage = value * 2;
                 Console.WriteLine("Critical Hit!");
+                return _damage * 2;
             }
+            return _damage;
         }
+        set { }
     }
     public string name = "Archer";
     
