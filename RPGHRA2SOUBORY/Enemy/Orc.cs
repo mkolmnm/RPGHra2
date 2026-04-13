@@ -12,13 +12,13 @@ public class Orc : Enemy
     {
         Random rnd = new Random(); 
         EnemyName = "Orc";
-        _maxHealth = 40;
-        currentHealth = 40;
+        _maxHealth = 50;
+        currentHealth = 50;
         ExperiencePoints = rnd.Next(40, 55);
     }
 
     public override void EnemyAtack(Character target)
     {
-        target.Health -= 5;
+            target.TakeDamage(8);
     }
 }
