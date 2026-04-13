@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection.Metadata.Ecma335;
+using RPGHra2.RPGHRA2SOUBORY.Enemy;
 
 namespace RPGHra2
 {
@@ -21,6 +22,7 @@ namespace RPGHra2
                     case 0:
                         Console.Clear();
                         if (vybranyHrdina == null)
+                            
                         {
                             Console.WriteLine("Napred si vyber hrdinu!");
                             Console.WriteLine("\nStiskni libovolnou klávesu pro návrat do menu...");
@@ -32,26 +34,26 @@ namespace RPGHra2
                             Console.WriteLine("Hra běží...");
 
 
-                            string[] smenuHry2 = { "Odrápané dveře", "Starožitné dveře" };
+                            string[] smenuHry1 = { "Odrápané dveře", "Starožitné dveře" };
                             Console.WriteLine("");
-                            int menuHry2 = Moznosti.VykresliMoznosti(smenuHry2,
+                            int menuHry1 = Moznosti.VykresliMoznosti(smenuHry1,
                                 "Objevil ses v Dungenu a jsou před tebou dvoje DVEŘE. 1. DVEŘE vypadají odrápaně, 2. DVEŘE zase starožitně."
                                 + "\n\u001b[1m\u001b[34mKam půjdeš?\u001b[0m");
-                            switch (menuHry2)
+
+                            Battle battle = new Battle();
+                            Enemy nepritel;
+
+                            if (menuHry1 == 0)
+                                nepritel = new Bat(); // odrápané = slabší nepřítel
+                            else
+                                nepritel = new Orc(); // starožitné = silnější
+
+                            bool vyhra = battle.StartBattle(vybranyHrdina, nepritel);
+
+                            if (!vyhra)
                             {
-                                case 0:
-                                    Console.WriteLine($"You have chosen the {smenuHry2[0]}!");
-                                    break;
-
-                                case 1:
-                                    Console.WriteLine($"You have chosen the {smenuHry2[1]}!");
-                                    break;
-                                default:
-                                    Console.WriteLine("nefunguje");
-                                    break;
+                                vybranyHrdina = null;
                             }
-
-                            Console.ReadKey(true);
                         }
                         break;
 

@@ -1,45 +1,87 @@
-﻿using RPGHra2.RPGHRA2SOUBORY.Enemy;
+﻿using System.Reflection.Metadata.Ecma335;
+using RPGHra2.RPGHRA2SOUBORY.Enemy;
 
 
 namespace RPGHra2;
 
-public class Battle 
+public class Battle
 {
-    public void StartBattle(Character player, Enemy enemy)
+    public bool StartBattle(Character player, Enemy enemy)
     {
-        Console.WriteLine($"Potkal si {enemy.EnemyName}...");
-        Console.ReadKey();
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"Potkal si {enemy.EnemyName}!");
+        Console.ResetColor();
+        Console.WriteLine("  Stiskni klávesu pro zahájení boje...");
+        Console.ReadKey(true);
+
         while (player.Health > 0 && enemy.Health > 0)
         {
-            //hracovo kolo
-            Console.WriteLine("\nCo uděláš a)Utéct b)Zaútočit");
-            string volba = Console.ReadLine();
-            if (volba == "b")
+            Console.WriteLine("════════════════════════════════");
+            Console.WriteLine($"  Ty:          HP {player.currentHealth}");
+            Console.WriteLine($"  {enemy.EnemyName,-12}  HP {enemy.currentHealth}");
+            Console.WriteLine("════════════════════════════════");
+
+            string[] akce = { "Zaútočit", "Utéct" };
+            int volba = Moznosti.VykresliMoznosti(akce, "Co uděláš?");
+            if (volba == 0) // útok
             {
-                enemy.currentHealth -= player.Damage;
+                int dmg = player.Damage; 
+                enemy.TakeDamage(dmg);
+                Console.WriteLine($"\n  Způsobil jsi {dmg} poškození!");
             }
-            else
+            else // útěk
             {
-                Console.WriteLine("Nepodařilo se ti utéct!");
+                Console.WriteLine("\n  Nepodařilo se ti utéct!");
+                Console.ReadKey(true);
             }
 
+            Console.Clear();
             Console.WriteLine($"{enemy.EnemyName} útočí...");
+            Console.ReadKey(true);
             enemy.EnemyAtack(player);
-            Console.WriteLine($"tvé životy: {player.Health}");
-
+            Console.WriteLine($"Tvé HP: {player.Health}");
+            Console.WriteLine("\n  Stiskni klávesu...");
+            Console.ReadKey(true);
         }
 
         if (enemy.currentHealth <= 0)
         {
-            Console.WriteLine($"Netvůra je mrtvá vyhrál si dostal si {enemy.ExperiencePoints} zkušeností");
+            Console.WriteLine($"Netvůra je mrtvá vyhrál si dostal jsi {enemy.ExperiencePoints} zkušeností");
             player.PridejXP(enemy.ExperiencePoints);
+            return true;
         }
 
-        if (player.currentHealth <= 0)
+        else
         {
-            Console.WriteLine($"Game Over, umřel si!");
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"
+   ██████╗  █████╗ ███╗   ███╗███████╗
+  ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
+  ██║  ███╗███████║██╔████╔██║█████╗  
+  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  
+  ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
+   ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+   ██████╗ ██╗   ██╗███████╗██████╗   
+  ██╔═══██╗██║   ██║██╔════╝██╔══██╗  
+  ██║   ██║██║   ██║█████╗  ██████╔╝  
+  ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗  
+  ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║  
+   ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝  
+            ");
+            Console.ResetColor();
+            Console.ReadKey(true);
+            string[] gameOverMenu = { "Hrát znovu (nová hra)", "Odejít" };
+            int gameOverVolba = Moznosti.VykresliMoznosti(gameOverMenu, "Co teď?");
+
+            if (gameOverVolba == 0)
+                return false;
+            else
+            {
+                Environment.Exit(0);
+            }
         }
-
-
+        return true;        
     }
 }

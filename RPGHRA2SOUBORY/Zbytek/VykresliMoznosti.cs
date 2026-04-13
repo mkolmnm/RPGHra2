@@ -38,13 +38,13 @@ namespace RPGHra2
                 }
 
                 
-                if (titulek.Contains("Hrdinu")) 
-                {
-                    Console.WriteLine("\n--- STATISTIKY ---");
-                    if (vybranyIndex == 0) Console.WriteLine("Health: 100      |    Power: 10    |   Defence: 10");//Warrior
-                    if (vybranyIndex == 1) Console.WriteLine("Health: 30       |    Mana: 100    |  Strength: 10");//Mage
-                    if (vybranyIndex == 2) Console.WriteLine("Health: 50       | FirePower: 15.5 |   Defence: 8");//Archer
-                }
+           if (titulek.Contains("Hrdinu"))
+{
+    Console.WriteLine("\n--- STATISTIKY ---");
+    if (vybranyIndex == 0)      Console.WriteLine("Health: 100  |  Damage: 10   |  Defence: 10");  // Warrior
+    else if (vybranyIndex == 1) Console.WriteLine("Health: 30   |  Damage: 5+10 |  Mana: 100");    // Mage (5 + manaCost)
+    else if (vybranyIndex == 2) Console.WriteLine("Health: 50   |  Damage: 8/16 |  Defence: 0");   // Archer (8 nebo crit 16)
+}
                 klavesa = Console.ReadKey(true).Key;
 
                 if (klavesa == ConsoleKey.UpArrow && vybranyIndex > 0)
