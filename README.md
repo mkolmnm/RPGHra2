@@ -13,9 +13,9 @@ Hra využívá objektově orientované programování – dědičnost, abstraktn
 
 ### Dědičnost
 Character (abstraktní)
-├── Warrior
-├── Mage
-├── Archer
+├── Warrior\n
+├── Mage\n
+├── Archer\n
 └── Enemy (abstraktní)
 	├── Bat
 	├── Orc
