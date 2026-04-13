@@ -2,10 +2,19 @@
 
 public class Archer : Character
 {
-    public int firePower { get; set; } = 15;
+    private static readonly Random _rnd = new Random();
+    
+    private int _damage = 8;
     public override int Damage { 
-        get => firePower;
-        set { }//pozdeji na aim
+        get => _damage;
+        set
+        {
+            if (_rnd.Next(0, 10) < 4)//30% šance
+            {
+                _damage = value * 2;
+                Console.WriteLine("Critical Hit!");
+            }
+        }
     }
     public string name = "Archer";
     

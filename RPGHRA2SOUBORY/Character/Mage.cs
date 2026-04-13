@@ -2,9 +2,17 @@
 
 public class Mage : Character
 {
-    public override int Damage { 
-        get => usedMana / 2;
-        set { }//pozdeji na debuffy
+    private int _damage = 5;
+    public override int Damage
+    {
+        get => _damage;
+        set
+        {
+            if (useMana = true)
+            {
+                value + mana = _damage;
+            }
+        }//pozdeji na debuffy
     }
     public string name = "Mage";
     public Mage()
@@ -12,7 +20,7 @@ public class Mage : Character
         _maxHealth = 30;
         currentHealth = 30;
         mana = 100;
-        
+        bool useMana = false;
     }
 
     public int mana { get; set; } = 100;
