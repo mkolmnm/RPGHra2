@@ -32,6 +32,7 @@ public class Battle
         if (enemy.currentHealth <= 0)
         {
             Console.WriteLine($"Netvůra je mrtvá vyhrál si dostal si {enemy.ExperiencePoints} zkušeností");
+            player.PridejXP(enemy.ExperiencePoints);
         }
 
         if (player.currentHealth <= 0)

@@ -31,11 +31,12 @@ namespace RPGHra2
                             Console.WriteLine($"Máš vybraného: {vybranyHrdina.GetType().Name}!");
                             Console.WriteLine("Hra běží...");
 
-                            
-                            string[] smenuHry2 = {"Odrápané dveře", "Starožitné dveře"};
+
+                            string[] smenuHry2 = { "Odrápané dveře", "Starožitné dveře" };
                             Console.WriteLine("");
-                            int menuHry2 = Moznosti.VykresliMoznosti(smenuHry2, "Objevil ses v Dungenu a jsou před tebou dvoje DVEŘE. 1. DVEŘE vypadají odrápaně, 2. DVEŘE zase starožitně." 
-                                                                + "\n\u001b[1m\u001b[34mKam půjdeš?\u001b[0m");
+                            int menuHry2 = Moznosti.VykresliMoznosti(smenuHry2,
+                                "Objevil ses v Dungenu a jsou před tebou dvoje DVEŘE. 1. DVEŘE vypadají odrápaně, 2. DVEŘE zase starožitně."
+                                + "\n\u001b[1m\u001b[34mKam půjdeš?\u001b[0m");
                             switch (menuHry2)
                             {
                                 case 0:
@@ -49,9 +50,10 @@ namespace RPGHra2
                                     Console.WriteLine("nefunguje");
                                     break;
                             }
+
                             Console.ReadKey(true);
                         }
-                       
+
                         break;
 
                     case 1:
@@ -63,12 +65,7 @@ namespace RPGHra2
                         konecHry = true;
                         break;
                 }
-                
-                
-                
-                
             }
         }
-    }   
-       
     }
+}    

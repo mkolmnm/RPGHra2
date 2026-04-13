@@ -2,7 +2,8 @@
 
 public class Warrior : Character
 {
-    private int _damage;
+    private int _damage = 10;
+    public float Defence { get; set; } = 10f;
     public override int Damage { 
         get => _damage;
         set { }//pozdeji na debuffy
@@ -13,8 +14,6 @@ public class Warrior : Character
     {
         _maxHealth = 100;
         currentHealth = 100;
-        power = 10f;
-        defence = 10f;
     }
 
     private float power { get; set; }
