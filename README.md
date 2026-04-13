@@ -5,12 +5,12 @@
 ### Dědičnost
 
 Character (abstraktní)
-├── Warrior\n
-├── Mage\n
-├── Archer\n
+├── Warrior
+├── Mage
+├── Archer
 └── Enemy (abstraktní)
-	├── Bat\n
-	├── Orc\n
+	├── Bat
+	├── Orc
 	└── Zombie
 ---
 
