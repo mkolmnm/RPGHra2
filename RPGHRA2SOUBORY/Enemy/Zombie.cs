@@ -2,13 +2,18 @@
 
 public class Zombie : Enemy
 {
+    private int _damage;
+    public override int Damage { 
+        get => _damage;
+        set { }//pozdeji na debuffy
+    }
     
     public Zombie()
     {
         Random rnd = new Random();
         EnemyName = "Zombie";
         _maxHealth = 12;
-        _currentHealth = 12;
+        currentHealth = 12;
         ExperiencePoints = rnd.Next(15, 26);
     }
 

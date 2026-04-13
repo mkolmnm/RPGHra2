@@ -2,12 +2,12 @@
 
 public abstract class Character
 { 
-    protected int _currentHealth;
+    public int currentHealth;
     protected int _maxHealth;
 
     public int Health
     {
-        get => _currentHealth;
+        get => currentHealth;
         set
         {
             if (value > _maxHealth)
@@ -21,11 +21,11 @@ public abstract class Character
             }
             else
             {
-                _currentHealth = value;
+                currentHealth = value;
             }
         }
     }
-
+    public abstract int Damage{get;set;}
 
 }
     

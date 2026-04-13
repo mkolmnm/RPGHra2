@@ -2,12 +2,17 @@
 
 public class Warrior : Character
 {
+    private int _damage;
+    public override int Damage { 
+        get => _damage;
+        set { }//pozdeji na debuffy
+    }
     public string name = "Warrior";
     
     public Warrior()
     {
         _maxHealth = 100;
-        _currentHealth = 100;
+        currentHealth = 100;
         power = 10f;
         defence = 10f;
     }

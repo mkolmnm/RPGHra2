@@ -2,13 +2,16 @@
 
 public class Archer : Character
 {
+    public int firePower { get; set; } = 15;
+    public override int Damage { 
+        get => firePower;
+        set { }//pozdeji na aim
+    }
     public string name = "Archer";
     
     public Archer()
     {
         _maxHealth = 50;
-        _currentHealth = 50;
-        firePower = 15.5f;
+        currentHealth = 50;
     }
-    public float firePower{get;set;}
 }

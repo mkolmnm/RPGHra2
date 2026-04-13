@@ -2,6 +2,11 @@
 
 public class Bat : Enemy
 {
+    private int _damage;//Tady nepouzit
+    public override int Damage { 
+        get => _damage;
+        set { }
+    }
     private static readonly Random _rng = new Random();
     private int _atackDamage = 4;
     public Bat()
@@ -9,7 +14,7 @@ public class Bat : Enemy
         Random rnd = new Random();
         EnemyName = "Bat";
         _maxHealth = 8;
-        _currentHealth = 8;
+        currentHealth = 8;
         ExperiencePoints = rnd.Next(15, 26);
         
     }
