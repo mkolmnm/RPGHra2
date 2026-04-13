@@ -15,7 +15,7 @@ public class Bat : Enemy
         EnemyName = "Bat";
         _maxHealth = 8;
         currentHealth = 8;
-        ExperiencePoints = rnd.Next(15, 26);
+        ExperiencePoints = rnd.Next(10, 15);
         
     }
     public override void EnemyAtack(Character target)

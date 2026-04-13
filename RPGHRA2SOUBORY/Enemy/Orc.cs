@@ -14,7 +14,7 @@ public class Orc : Enemy
         EnemyName = "Orc";
         _maxHealth = 40;
         currentHealth = 40;
-        ExperiencePoints = rnd.Next(15, 26);
+        ExperiencePoints = rnd.Next(40, 55);
     }
 
     public override void EnemyAtack(Character target)

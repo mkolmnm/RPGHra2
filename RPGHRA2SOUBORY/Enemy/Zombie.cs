@@ -14,7 +14,7 @@ public class Zombie : Enemy
         EnemyName = "Zombie";
         _maxHealth = 12;
         currentHealth = 12;
-        ExperiencePoints = rnd.Next(15, 26);
+        ExperiencePoints = rnd.Next(20, 30);
     }
 
     public override void EnemyAtack(Character target)
