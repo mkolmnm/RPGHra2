@@ -45,9 +45,14 @@ public abstract class Character
         }
     }
     
-    public void TakeDamage(int amount)
+    public void TakeDamage(int damageDealt)
     {
-        currentHealth -= amount;
+        int realdamage = damageDealt - Defence;
+        if (realdamage < 0)
+        {
+            realdamage = 0;
+        }
+        currentHealth -= realdamage;
     }
     
     public abstract int Damage{get;set;}
