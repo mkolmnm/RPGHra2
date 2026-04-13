@@ -17,8 +17,10 @@ namespace RPGHra2
             do
             {
                 Console.Clear();
-                Console.WriteLine(new string('-', titulek.Length));
+                Console.WriteLine(new string('-', titulek.Length)); 
                 Console.WriteLine(titulek);
+
+                
 
                 for (int i = 0; i < moznosti.Length; i++)
                 {

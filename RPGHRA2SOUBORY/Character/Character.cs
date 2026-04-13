@@ -16,7 +16,7 @@ public abstract class Character
             }
             else if (value <= 0)
             {
-                value = 0;
+                currentHealth = 0;
                 Console.WriteLine("Měl bys umřít!!!");
             }
             else
