@@ -21,14 +21,17 @@ public class Battle
             Console.WriteLine($"  Ty:          HP {player.currentHealth}");
             Console.WriteLine($"  {enemy.EnemyName,-12}  HP {enemy.currentHealth}");
             Console.WriteLine("════════════════════════════════");
+            Console.ReadKey(true);
 
             string[] akce = { "Zaútočit", "Utéct" };
             int volba = Moznosti.VykresliMoznosti(akce, "Co uděláš?");
             if (volba == 0) // útok
             {
+                
                 int dmg = player.Damage; 
                 enemy.TakeDamage(dmg);
                 Console.WriteLine($"\n  Způsobil jsi {dmg} poškození!");
+                Console.ReadKey(true);
             }
             else // útěk
             {
@@ -40,8 +43,9 @@ public class Battle
             Console.WriteLine($"{enemy.EnemyName} útočí...");
             Console.ReadKey(true);
             enemy.EnemyAtack(player);
+            Console.WriteLine($"{enemy.EnemyName}.ti UBRAL {enemy.Damage} HP!");
             Console.WriteLine($"Tvé HP: {player.Health}");
-            Console.WriteLine("\n  Stiskni klávesu...");
+            Console.WriteLine("\n  Stiskni klávesu...");//fixnout cw u nepritele kdyz umre, kdyz umre tak at se nevypise ze bat utoci
             Console.ReadKey(true);
         }
 
