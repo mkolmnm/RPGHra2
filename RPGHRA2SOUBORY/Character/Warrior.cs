@@ -2,8 +2,9 @@
 
 public class Warrior : Character
 {
+    private static int rnd = new Random().Next(0, 11);
     private int _damage = 10;
-    public override int Defence { get; set; } = 10;
+    public override int Defence { get; set; } = rnd;
     public override int Damage { 
         get => _damage;
         set { }//pozdeji na debuffy

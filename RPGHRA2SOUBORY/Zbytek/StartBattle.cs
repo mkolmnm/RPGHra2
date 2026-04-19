@@ -49,14 +49,26 @@ public class Battle
             Console.Clear();
             if (enemy.Health > 0)
             {
-
+                int HpBefore  = player.Health;
                 Console.WriteLine($"{enemy.EnemyName} útočí...");
                 Console.ReadKey(true);
                 enemy.EnemyAtack(player);
-                Console.WriteLine($"{enemy.EnemyName}.ti UBRAL {enemy.Damage} HP!");
+                int actualDamage = HpBefore - player.Health;
+
+                
+                if (player is Warrior a && a.Defence > 0)
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine($"Tvůj štít zablokoval {a.Defence} Poškození!");
+                    Console.ResetColor();
+                }
+                Console.WriteLine($"{enemy.EnemyName} ti UBRAL {actualDamage} HP!");
+                Console.ReadKey(true);
                 Console.WriteLine($"Tvé HP: {player.Health}");
                 Console.WriteLine("\n  Stiskni klávesu..."); //fixnout cw u nepritele kdyz umre, kdyz umre tak at se nevypise ze bat utoci
                 Console.ReadKey(true);
+                Console.Clear();
             }
         }
 
