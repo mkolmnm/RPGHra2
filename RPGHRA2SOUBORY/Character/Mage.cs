@@ -4,7 +4,7 @@ public class Mage : Character
 {
     private int _damage = 5;
     private int _manaCost = 10;
-
+    private int  _maxMana = 100;
     public int Mana { get; set; } = 100;
     public string Name { get; set; } = "Mage";
 
@@ -37,6 +37,16 @@ public class Mage : Character
         _maxHealth = 30;
         _currentHealth = 30;
     }
+    
+    protected override void OnLevelUp()
+    {
+        _damage += 1;
+        _maxMana += 20;
+        Mana = _maxMana;
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"  Spell damage +1 (celkem {_damage + _manaCost})  |  Max mana +20 (celkem {_maxMana})");
+        Console.ResetColor();
+    } 
 
 
 }

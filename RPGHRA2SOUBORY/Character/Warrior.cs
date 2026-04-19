@@ -16,4 +16,13 @@ public class Warrior : Character
         _currentHealth = 100;
     }
 
+    protected override void OnLevelUp()
+    {
+        _damage += 1;
+        Defence += 1;
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"  Damage +1 (celkem {_damage})  |  Defence +1 (celkem {Defence})");
+        Console.ResetColor();
+    } 
+    
 }

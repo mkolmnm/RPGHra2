@@ -30,6 +30,12 @@ public class Battle
                 
                 int dmg = player.Damage; 
                 enemy.TakeDamage(dmg);
+                if (player is Archer a && a.CritHit)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("  ★ CRITICAL HIT!");
+                    Console.ResetColor();
+                }
                 Console.WriteLine($"\n  Způsobil jsi {dmg} poškození!");
                 Console.WriteLine($"{enemy.EnemyName} má {enemy.Health} HP");
                 Console.ReadKey(true);

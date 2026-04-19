@@ -9,6 +9,7 @@ public abstract class Character
     protected int _maxHealth;
     public virtual int Defence { get; set; } = 0; 
 
+// Character.cs
     public void PridejXP(int xp)
     {
         XP += xp;
@@ -18,13 +19,17 @@ public abstract class Character
             XP -= XPToNextLevel;
             _maxHealth += 10;
             _currentHealth = _maxHealth;
-            
+
             Console.BackgroundColor = ConsoleColor.Yellow;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"\nLevel {Level} has been achieved! Your Hp has risen by 10!");
+            Console.WriteLine($"\nLevel {Level} achieved! HP +10");
             Console.ResetColor();
+
+            OnLevelUp(); 
         }
     }
+
+    protected virtual void OnLevelUp() { } 
     public int Health
     {
         get => _currentHealth;
