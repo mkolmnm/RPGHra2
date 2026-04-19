@@ -5,7 +5,7 @@ public abstract class Character
     public int Level { get; protected set; } = 1;
     public int XP { get; protected set; } = 0;
     public int XPToNextLevel => Level * 30;
-    public int currentHealth;
+    protected int _currentHealth;
     protected int _maxHealth;
     public virtual int Defence { get; set; } = 0; 
 
@@ -15,9 +15,9 @@ public abstract class Character
         if (XP >= XPToNextLevel)
         {
             Level++;
-            XP = 0;
+            XP -= XPToNextLevel;
             _maxHealth += 10;
-            currentHealth = _maxHealth;
+            _currentHealth = _maxHealth;
             
             Console.BackgroundColor = ConsoleColor.Yellow;
             Console.ForegroundColor = ConsoleColor.Black;
@@ -27,20 +27,20 @@ public abstract class Character
     }
     public int Health
     {
-        get => currentHealth;
+        get => _currentHealth;
         set
         {
             if (value > _maxHealth)
             {
-                value = _maxHealth;
+                _currentHealth = _maxHealth;
             }
             else if (value <= 0)
             {
-                currentHealth = 0;
+                _currentHealth = 0;
             }            
             else
             {
-                currentHealth = value;
+                _currentHealth = value;
             }
         }
     }
@@ -52,7 +52,7 @@ public abstract class Character
         {
             realdamage = 0;
         }
-        currentHealth -= realdamage;
+        Health -= realdamage;
     }
     
     public abstract int Damage{get;set;}

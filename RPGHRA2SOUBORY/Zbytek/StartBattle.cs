@@ -18,8 +18,8 @@ public class Battle
         while (player.Health > 0 && enemy.Health > 0)
         {
             Console.WriteLine("════════════════════════════════");
-            Console.WriteLine($"  Ty:          HP {player.currentHealth}");
-            Console.WriteLine($"  {enemy.EnemyName,-12}  HP {enemy.currentHealth}");
+            Console.WriteLine($"  Ty:          HP {player.Health}");
+            Console.WriteLine($"  {enemy.EnemyName,-12}  HP {enemy.Health}");
             Console.WriteLine("════════════════════════════════");
             Console.ReadKey(true);
 
@@ -31,6 +31,7 @@ public class Battle
                 int dmg = player.Damage; 
                 enemy.TakeDamage(dmg);
                 Console.WriteLine($"\n  Způsobil jsi {dmg} poškození!");
+                Console.WriteLine($"{enemy.EnemyName} má {enemy.Health} HP");
                 Console.ReadKey(true);
             }
             else // útěk
@@ -40,19 +41,30 @@ public class Battle
             }
 
             Console.Clear();
-            Console.WriteLine($"{enemy.EnemyName} útočí...");
-            Console.ReadKey(true);
-            enemy.EnemyAtack(player);
-            Console.WriteLine($"{enemy.EnemyName}.ti UBRAL {enemy.Damage} HP!");
-            Console.WriteLine($"Tvé HP: {player.Health}");
-            Console.WriteLine("\n  Stiskni klávesu...");//fixnout cw u nepritele kdyz umre, kdyz umre tak at se nevypise ze bat utoci
-            Console.ReadKey(true);
+            if (enemy.Health > 0)
+            {
+
+                Console.WriteLine($"{enemy.EnemyName} útočí...");
+                Console.ReadKey(true);
+                enemy.EnemyAtack(player);
+                Console.WriteLine($"{enemy.EnemyName}.ti UBRAL {enemy.Damage} HP!");
+                Console.WriteLine($"Tvé HP: {player.Health}");
+                Console.WriteLine("\n  Stiskni klávesu..."); //fixnout cw u nepritele kdyz umre, kdyz umre tak at se nevypise ze bat utoci
+                Console.ReadKey(true);
+            }
         }
 
-        if (enemy.currentHealth <= 0)
+        if (enemy.Health <= 0)
         {
             Console.WriteLine($"Netvůra je mrtvá vyhrál si dostal jsi {enemy.ExperiencePoints} zkušeností");
             player.PridejXP(enemy.ExperiencePoints);
+
+            if (player.XP == player.XPToNextLevel)
+            {
+                Console.WriteLine($"You Leveled up to LEVEL {player.Level}, your HP has been restored!");
+            }
+            Console.WriteLine($"XP to next level: {player.XPToNextLevel - player.XPToNextLevel}");
+            Console.ReadKey(true);
             return true;
         }
 
@@ -73,7 +85,7 @@ public class Battle
   ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗  
   ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║  
    ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝  
-            ");
+            ");//GAME OVER
             Console.ResetColor();
             Console.ReadKey(true);
             string[] gameOverMenu = { "Hrát znovu (nová hra)", "Odejít" };
@@ -86,6 +98,5 @@ public class Battle
                 Environment.Exit(0);
             }
         }
-        return true;        
     }
 }

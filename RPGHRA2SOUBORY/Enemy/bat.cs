@@ -13,7 +13,7 @@ public class Bat : Enemy
         Random rnd = new Random();
         EnemyName = "Bat";
         _maxHealth = 8;
-        currentHealth = 8;
+        _currentHealth = 8;
         ExperiencePoints = rnd.Next(10, 15);
         
     }

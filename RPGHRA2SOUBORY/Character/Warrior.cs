@@ -13,7 +13,7 @@ public class Warrior : Character
     public Warrior()
     {
         _maxHealth = 100;
-        currentHealth = 100;
+        _currentHealth = 100;
     }
 
 }

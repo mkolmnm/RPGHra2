@@ -13,7 +13,7 @@ public class Zombie : Enemy
         Random rnd = new Random();
         EnemyName = "Zombie";
         _maxHealth = 20;
-        currentHealth = 20;
+        _currentHealth = 20;
         ExperiencePoints = rnd.Next(20, 30);
     }
 

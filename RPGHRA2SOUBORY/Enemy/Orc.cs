@@ -13,7 +13,7 @@ public class Orc : Enemy
         Random rnd = new Random(); 
         EnemyName = "Orc";
         _maxHealth = 50;
-        currentHealth = 50;
+        _currentHealth = 50;
         ExperiencePoints = rnd.Next(40, 55);
     }
 

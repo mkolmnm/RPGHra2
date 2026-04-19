@@ -36,7 +36,7 @@ public class Mage : Character
     public Mage()
     {
         _maxHealth = 30;
-        currentHealth = 30;
+        _currentHealth = 30;
     }
 
 

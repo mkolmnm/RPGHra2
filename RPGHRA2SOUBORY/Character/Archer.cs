@@ -24,6 +24,6 @@ public class Archer : Character
     public Archer()
     {
         _maxHealth = 50;
-        currentHealth = 50;
+        _currentHealth = 50;
     }
 }
