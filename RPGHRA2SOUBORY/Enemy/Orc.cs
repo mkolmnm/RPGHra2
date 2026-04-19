@@ -2,12 +2,11 @@
 
 public class Orc : Enemy
 {
-    private int _damage;//tady nepouzit
+    private int _damage = 8;
     public override int Damage { 
         get => _damage;
-        set { }//pozdeji na debuffy
+        set;
     }
-
     public Orc()
     {
         Random rnd = new Random(); 
@@ -19,6 +18,6 @@ public class Orc : Enemy
 
     public override void EnemyAtack(Character target)
     {
-            target.TakeDamage(8);
+            target.TakeDamage(Damage);
     }
 }

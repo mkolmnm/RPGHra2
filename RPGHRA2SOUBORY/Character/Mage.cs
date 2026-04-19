@@ -32,7 +32,6 @@ public class Mage : Character
         set{ }
         //pozdeji na debuffy
     }
-    public string name = "Mage";
     public Mage()
     {
         _maxHealth = 30;

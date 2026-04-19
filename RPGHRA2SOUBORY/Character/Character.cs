@@ -54,8 +54,8 @@ public abstract class Character
         }
         Health -= realdamage;
     }
-    
-    public abstract int Damage{get;set;}
+
+    public virtual int Damage { get; set; } = 0;
 
 }
     

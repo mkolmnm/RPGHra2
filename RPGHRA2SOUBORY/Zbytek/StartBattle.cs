@@ -58,45 +58,37 @@ public class Battle
         {
             Console.WriteLine($"Netvůra je mrtvá vyhrál si dostal jsi {enemy.ExperiencePoints} zkušeností");
             player.PridejXP(enemy.ExperiencePoints);
-
-            if (player.XP == player.XPToNextLevel)
-            {
-                Console.WriteLine($"You Leveled up to LEVEL {player.Level}, your HP has been restored!");
-            }
-            Console.WriteLine($"XP to next level: {player.XPToNextLevel - player.XPToNextLevel}");
+            
+            Console.WriteLine($"XP to next level: {player.XPToNextLevel - player.XP}");
             Console.ReadKey(true);
             return true;
         }
 
-        else
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(@"
-   ██████╗  █████╗ ███╗   ███╗███████╗
-  ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
-  ██║  ███╗███████║██╔████╔██║█████╗  
-  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  
-  ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
-   ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
-   ██████╗ ██╗   ██╗███████╗██████╗   
-  ██╔═══██╗██║   ██║██╔════╝██╔══██╗  
-  ██║   ██║██║   ██║█████╗  ██████╔╝  
-  ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗  
-  ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║  
-   ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝  
-            ");//GAME OVER
-            Console.ResetColor();
-            Console.ReadKey(true);
-            string[] gameOverMenu = { "Hrát znovu (nová hra)", "Odejít" };
-            int gameOverVolba = Moznosti.VykresliMoznosti(gameOverMenu, "Co teď?");
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(@"
+██████╗  █████╗ ███╗   ███╗███████╗
+██╔════╝ ██╔══██╗████╗ ████║██╔════╝
+██║  ███╗███████║██╔████╔██║█████╗  
+██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  
+╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
+╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+██████╗ ██╗   ██╗███████╗██████╗   
+██╔═══██╗██║   ██║██╔════╝██╔══██╗  
+██║   ██║██║   ██║█████╗  ██████╔╝  
+██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗  
+╚██████╔╝ ╚████╔╝ ███████╗██║  ██║  
+╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝  
+        ");//GAME OVER
+        Console.ResetColor();
+        Console.ReadKey(true);
+        string[] gameOverMenu = { "Hrát znovu (nová hra)", "Odejít" };
+        int gameOverVolba = Moznosti.VykresliMoznosti(gameOverMenu, "Co teď?");
 
-            if (gameOverVolba == 0)
-                return false;
-            else
-            {
-                Environment.Exit(0);
-            }
+        if (gameOverVolba == 1)
+        {
+            Environment.Exit(0);
         }
+            return false;
     }
 }
