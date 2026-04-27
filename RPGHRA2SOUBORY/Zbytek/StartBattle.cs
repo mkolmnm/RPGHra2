@@ -23,7 +23,7 @@ public class Battle
             Console.WriteLine("════════════════════════════════");
             Console.ReadKey(true);
 
-            string[] akce = { "Zaútočit", "Utéct" };
+            string[] akce = { "Zaútočit", "Jít do inventáře a pak zaútočit" };
             int volba = Moznosti.VykresliMoznosti(akce, "Co uděláš?");
             if (volba == 0) // útok
             {
@@ -40,9 +40,23 @@ public class Battle
                 Console.WriteLine($"{enemy.EnemyName} má {enemy.Health} HP");
                 Console.ReadKey(true);
             }
-            else // útěk
+            else // budouci inventář
             {
-                Console.WriteLine("\n  Nepodařilo se ti utéct!");
+                Console.Clear();
+                Console.WriteLine("\n  Měl by se otevřít inventář!");
+                Console.ReadKey(true);
+                Console.Clear();
+                
+                int dmg = player.Damage; 
+                enemy.TakeDamage(dmg);
+                if (player is Archer a && a.CritHit)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("  ★ CRITICAL HIT!");
+                    Console.ResetColor();
+                }
+                Console.WriteLine($"\n  Způsobil jsi {dmg} poškození!");
+                Console.WriteLine($"{enemy.EnemyName} má {enemy.Health} HP");
                 Console.ReadKey(true);
             }
 

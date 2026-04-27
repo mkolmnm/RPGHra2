@@ -7,9 +7,9 @@ public abstract class Character
     public int XPToNextLevel => Level * 30;
     protected int _currentHealth;
     protected int _maxHealth;
+    
     public virtual int Defence { get; set; } = 0; 
 
-// Character.cs
     public void PridejXP(int xp)
     {
         XP += xp;
@@ -29,17 +29,19 @@ public abstract class Character
         }
     }
 
-    protected virtual void OnLevelUp() { } 
+    protected virtual void OnLevelUp() { }
+    
+    
     public int Health
     {
         get => _currentHealth;
         set
         {
-            if (value > _maxHealth)
+            if (value > _maxHealth) //kdyz zivoty presahuji
             {
                 _currentHealth = _maxHealth;
             }
-            else if (value <= 0)
+            else if (_currentHealth < 0)//mene nez 0
             {
                 _currentHealth = 0;
             }            

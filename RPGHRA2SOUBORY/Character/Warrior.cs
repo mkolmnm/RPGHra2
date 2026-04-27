@@ -7,7 +7,7 @@ public class Warrior : Character
     public override int Defence { get; set; } = rnd;
     public override int Damage { 
         get => _damage;
-        set { }//pozdeji na debuffy
+        set;
     }
     public string name = "Warrior";
     
