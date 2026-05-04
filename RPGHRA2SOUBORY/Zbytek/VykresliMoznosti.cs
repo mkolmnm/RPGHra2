@@ -7,7 +7,7 @@ namespace RPGHra2
     public class Moznosti
     {
 
-        public static int VykresliMoznosti(string[] moznosti, string titulek)
+        public static int VykresliMoznosti(string[] moznosti, string titulek, string header = "")
         {
             int vybranyIndex = 0;
             ConsoleKey klavesa;
@@ -17,7 +17,7 @@ namespace RPGHra2
             do
             {
                 Console.Clear();
-                Console.WriteLine(new string('-', titulek.Length)); 
+                Console.WriteLine(header);
                 Console.WriteLine(titulek);
 
                 for (int i = 0; i < moznosti.Length; i++)
