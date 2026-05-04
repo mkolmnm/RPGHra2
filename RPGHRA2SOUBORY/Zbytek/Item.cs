@@ -7,13 +7,13 @@ public abstract class Item
     protected virtual bool _activeEffect { get; set; }
 
 
-    public class HealPotion : Item
+    public class HealhPotion : Item
     {
         public override string Name { get; set; } = "Heal Potion";
 
         public override void Effect(Character player)
         {
-            player.Health += 10;
+            player.Health += 10;//problem s currentHealth nevim jestli se v setteru u Health resetuje hodnota kdyz prestihne _maxHealth protoze v setteru mam _currentHealth
         }
     }
 
