@@ -8,7 +8,10 @@ namespace RPGHra2
     class Program
     {
         static void Main()
+
         {
+            RPGHra2.Inventory.PridejPotion("StrengthPotion");
+            RPGHra2.Inventory.PridejPotion("HealthPotion");
             Character vybranyHrdina = null;
             bool konecHry = false;
             while (!konecHry)

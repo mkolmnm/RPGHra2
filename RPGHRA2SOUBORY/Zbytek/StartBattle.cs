@@ -40,13 +40,66 @@ public class Battle
                 Console.WriteLine($"{enemy.EnemyName} má {enemy.Health} HP");
                 Console.ReadKey(true);
             }
-            else // budouci inventář
+            else // inventář
             {
                 Console.Clear();
-                Console.WriteLine("\n  Měl by se otevřít inventář!");
-                Console.ReadKey(true);
-                Console.Clear();
-                
+                while (true)
+                {
+                int strengthPotionCount = Inventory.items.FirstOrDefault(x => x.Key == "StrengthPotion").Value;
+                int healthPotionCount = Inventory.items.FirstOrDefault(x => x.Key == "HealthPotion").Value;    
+                    string inventory = $@"
+                ╔══════════════════════════════════════════════╗
+                ║           ♦  BRAŠNA S PŘEDMĚTY  ♦            ║
+                ╠══════════════════════════════════════════════╣
+                ║  ❤  Health Potion  ···················  {healthPotionCount,2} ks ║
+                ║  ⚔  Strength Potion  ·················  {strengthPotionCount,2} ks ║
+                ╚══════════════════════════════════════════════╝";
+                    string[] moznostiA = { 
+                        $"Léčivý lektvar  ({healthPotionCount} ks) [+50 HP]", 
+                        $"Lektvar síly    ({strengthPotionCount} ks) [+5 DMG]", 
+                        "<- Zpět do boje" 
+                    };                
+                   
+                    int volbaLekt = Moznosti.VykresliMoznosti(moznostiA, "Co Použiješ?", inventory);
+
+                    switch (volbaLekt)
+                    {
+                        case 0:
+                            Console.WriteLine("Léčivý lektvar");
+                            string[] moznostiF = {"Ano", "Ne"};
+                            int poctHea = Moznosti.VykresliMoznosti(moznostiF,
+                                "Seš si jistý/á že chceš použít Health Potion?");
+                            if (poctHea == 0)//Ano
+                            {
+                                Inventory.OdeberPotion("HealthPotion");
+                                player.Health += 10;
+                                Console.Write("Vypil jsi ");
+                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                Console.Write("Health Potion");
+                                Console.ResetColor(); 
+                                Console.WriteLine("!");        
+                                Console.ReadKey();
+                            }
+                            continue;
+                            
+                        case 1:
+                            Console.WriteLine("Lektvar síly");
+                            string[] moznostiG = {"Ano", "Ne"};
+                            int poctStr = Moznosti.VykresliMoznosti(moznostiG,
+                                "Seš si jistý/á že chceš použít Health Potion?");
+                            if (poctStr == 0)//Ano
+                            {
+                                player.PridejTempDamage(10);
+                            }
+                            continue;
+                        case 2:
+                            Console.WriteLine("Zpět do boje");
+                            break;
+                    }
+                    Console.ReadKey();
+
+                }
+               
                 int dmg = player.Damage; 
                 enemy.TakeDamage(dmg);
                 if (player is Archer a && a.CritHit)
