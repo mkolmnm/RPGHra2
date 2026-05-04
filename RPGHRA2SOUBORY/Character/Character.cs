@@ -41,7 +41,7 @@ public abstract class Character
             {
                 _currentHealth = _maxHealth;
             }
-            else if (_currentHealth < 0)//mene nez 0
+            else if (value < 0)//mene nez 0
             {
                 _currentHealth = 0;
             }            
@@ -51,10 +51,21 @@ public abstract class Character
             }
         }
     }
+    public int BonusDamage { get; private set; } = 0;
+
+    public void PridejTempDamage(int bonus)
+    {
+        BonusDamage += bonus;
+    }
+
+    public void ResetujTempDamage()
+    {
+        BonusDamage = 0;
+    }
     
     public void TakeDamage(int damageDealt)
     {
-        int realdamage = damageDealt - Defence;
+        int realdamage = damageDealt + BonusDamage - Defence;
         if (realdamage < 0)
         {
             realdamage = 0;
