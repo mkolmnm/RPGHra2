@@ -33,31 +33,13 @@ namespace RPGHra2
                         }
                         else
                         {
-                            Console.WriteLine($"Máš vybraného: {vybranyHrdina.GetType().Name}!");
-                            Console.WriteLine("Hra běží...");
-
-
-                            string[] smenuHry1 = { "Odrápané dveře", "Starožitné dveře" };
-                            Console.WriteLine("");
-                            int menuHry1 = Moznosti.VykresliMoznosti(smenuHry1,
-                                "Objevil ses v Dungenu a jsou před tebou dvoje DVEŘE. 1. DVEŘE vypadají odrápaně, 2. DVEŘE zase starožitně."
-                                + "\n\u001b[1m\u001b[34mKam půjdeš?\u001b[0m");
-
-                            Battle battle = new Battle();
-                            Enemy nepritel;
-
-                            if (menuHry1 == 0)
-                                nepritel = new Bat(); // odrápané = slabší nepřítel
-                            else
-                                nepritel = new Orc(); // starožitné = silnější
-
-                            bool vyhra = battle.StartBattle(vybranyHrdina, nepritel);
-
-                            if (!vyhra)
+                            bool vyhralHru = Dungeon.HrajDungeon(vybranyHrdina);
+                            if (!vyhralHru)
                             {
                                 vybranyHrdina = null;
                                 Inventory.ResetInventory();
                             }
+
                         }
                         break;
 

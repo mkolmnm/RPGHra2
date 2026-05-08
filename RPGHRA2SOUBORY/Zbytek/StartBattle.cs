@@ -22,19 +22,11 @@ public class Battle
         while (player.Health > 0 && enemy.Health > 0)
         {
 
-            string battleMenu = $@"
-════════════════════════════════   
-Ty:          HP {player.Health}
-Your BonusDamage: {player.BonusDamage}
-{enemy.EnemyName,-12}  HP {enemy.Health}
-════════════════════════════════";
-            
             string[] akce = { "Zaútočit", "Jít do inventáře a pak zaútočit" };
             int volba = Moznosti.VykresliMoznosti(akce, "Co uděláš?","", status);
             
             if (volba == 0) // útok
             {
-                Console.WriteLine(battleMenu);
                 int dmg = player.Damage; 
                 enemy.TakeDamage(dmg);
                 if (player is Archer a && a.CritHit)
@@ -46,7 +38,7 @@ Your BonusDamage: {player.BonusDamage}
                 Console.WriteLine($"\n  Způsobil jsi {dmg} poškození!");
                 Console.WriteLine($"{enemy.EnemyName} má {enemy.Health} HP");
                 VykresliStatus(player, enemy);
-                Console.ReadKey(true);
+                    Console.ReadKey(true);
             }
             else // inventář
             {
@@ -96,7 +88,7 @@ Your BonusDamage: {player.BonusDamage}
                             Console.WriteLine("Lektvar síly");
                             string[] moznostiG = {"Ano", "Ne"};
                             int poctStr = Moznosti.VykresliMoznosti(moznostiG,
-                                "Seš si jistý/á že chceš použít Lektvar síly?","", status);
+                                "Seš si jistý/á že chceš použít Lektvar síly?","",status);
                             if (poctStr == 0)//Ano
                             {
                                 player.PridejTempDamage(10);
@@ -110,13 +102,14 @@ Your BonusDamage: {player.BonusDamage}
                             }
                             continue;
                         }
+                            
                         
                             Console.Clear();
-                            Console.WriteLine(battleMenu);
-                            Console.ReadKey();
+                            Console.WriteLine("Stiskni jakoukoliv klávesu na zahájení boje!" );
+                            Console.Clear();
                             break;
                 }
-               
+                VykresliStatus(player, enemy);
                 int dmg = player.Damage; 
                 enemy.TakeDamage(dmg);
                 if (player is Archer a && a.CritHit)
@@ -125,6 +118,9 @@ Your BonusDamage: {player.BonusDamage}
                     Console.WriteLine("  ★ CRITICAL HIT!");
                     Console.ResetColor();
                 }
+                Console.WriteLine("Útočíš...");
+                Console.ReadKey();
+                Console.Clear();
                 Console.WriteLine($"\n  Způsobil jsi {dmg} poškození!");
                 Console.WriteLine($"{enemy.EnemyName} má {enemy.Health} HP");
                 Console.ReadKey(true);
