@@ -58,14 +58,14 @@ public abstract class Character
         BonusDamage += bonus;
     }
 
-    public void ResetujTempDamage()
+    public static void ResetujTempDamage(Character player)
     {
-        BonusDamage = 0;
+        player.BonusDamage = 0;
     }
     
     public void TakeDamage(int damageDealt)
     {
-        int realdamage = damageDealt + BonusDamage - Defence;
+        int realdamage = damageDealt - Defence;
         if (realdamage < 0)
         {
             realdamage = 0;

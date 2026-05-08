@@ -15,18 +15,18 @@ public class Mage : Character
             if (Mana >= _manaCost)
             {
                 Mana -= _manaCost;
-                return _damage + _manaCost;
+                return _damage + _manaCost + BonusDamage;
             }
             else if (Mana > 0)
             {
                 int zbytek = Mana;
                 Mana = 0;
-                return _damage + zbytek;
+                return _damage + zbytek + BonusDamage;
             }
             else
             {
                 Console.WriteLine("No mana, utok bez many");
-                return _damage;
+                return _damage + BonusDamage;
             }
         }
         set{ }
@@ -40,13 +40,24 @@ public class Mage : Character
     
     protected override void OnLevelUp()
     {
-        _damage += 1;
-        _maxMana += 20;
-        Mana = _maxMana;
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine($"  Spell damage +1 (celkem {_damage + _manaCost})  |  Max mana +20 (celkem {_maxMana})");
+        string[] volby = { "+2 Spell Damage", "+30 Max Mana" };
+        int volba = Moznosti.VykresliMoznosti(volby, "Vyber si bonus za level up!");
+
+        if (volba == 0)
+        {
+            _damage += 2;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"  Spell damage +2 (celkem {_damage + _manaCost})");
+        }
+        else
+        {
+            _maxMana += 30;
+            Mana = _maxMana;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"  Max mana +30 (celkem {_maxMana})");
+        }
         Console.ResetColor();
-    } 
+    }
 
 
 }
