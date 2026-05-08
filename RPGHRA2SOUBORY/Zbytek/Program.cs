@@ -10,8 +10,8 @@ namespace RPGHra2
         static void Main()
 
         {
-            RPGHra2.Inventory.PridejPotion("StrengthPotion");
-            RPGHra2.Inventory.PridejPotion("HealthPotion");
+            RPGHra2.Inventory.PridejPotion("Strength Potion");
+            RPGHra2.Inventory.PridejPotion("Heal Potion");
             Character vybranyHrdina = null;
             bool konecHry = false;
             while (!konecHry)
@@ -56,6 +56,7 @@ namespace RPGHra2
                             if (!vyhra)
                             {
                                 vybranyHrdina = null;
+                                Inventory.ResetInventory();
                             }
                         }
                         break;

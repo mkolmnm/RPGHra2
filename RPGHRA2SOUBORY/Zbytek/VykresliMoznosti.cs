@@ -7,7 +7,7 @@ namespace RPGHra2
     public class Moznosti
     {
 
-        public static int VykresliMoznosti(string[] moznosti, string titulek, string header = "")
+        public static int VykresliMoznosti(string[] moznosti, string titulek, string header = "", Action statusBar = null)
         {
             int vybranyIndex = 0;
             ConsoleKey klavesa;
@@ -42,6 +42,9 @@ namespace RPGHra2
                     else if (vybranyIndex == 1) Console.WriteLine("Health: 30   |  Damage: 5+10 |  Mana: 100");    // Mage (5 + manaCost)
                     else if (vybranyIndex == 2) Console.WriteLine("Health: 50   |  Damage: 8/16 |  Defence: 0");   // Archer (8 nebo crit 16)
                 }
+
+                statusBar?.Invoke();
+
                 klavesa = Console.ReadKey(true).Key;
 
                 if (klavesa == ConsoleKey.UpArrow && vybranyIndex > 0)
