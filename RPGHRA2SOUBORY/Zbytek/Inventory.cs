@@ -16,15 +16,18 @@ public class Inventory
         }
     }
 
-    public static void OdeberPotion(string item)
+    public static void OdeberPotion(string item)//kontrola ze item vubec existuje
     {
-        if (items[item] > 0)
-        {
+        if (items.ContainsKey(item) && items[item] > 0)
             items[item]--;
-        }
     }
 
-    
+    public static void ResetInventory()
+    {
+        items.Clear();
+        PridejPotion("Strength Potion");
+        PridejPotion("Heal Potion");
+    }   
     
     
 }
