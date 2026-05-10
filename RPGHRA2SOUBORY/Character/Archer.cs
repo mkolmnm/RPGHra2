@@ -17,7 +17,7 @@ public class Archer : Character
             if (_rnd.Next(0, 100) < _critChance)
             {
                 CritHit = true;
-                return _damage * 2;
+                return (_damage + BonusDamage) * 2 ;
             }
             CritHit = false;
             return _damage + BonusDamage;

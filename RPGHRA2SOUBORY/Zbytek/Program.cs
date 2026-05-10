@@ -39,7 +39,7 @@ namespace RPGHra2
                                 vybranyHrdina = null;
                                 Inventory.ResetInventory();
                             }
-
+                            Inventory.ResetInventory(); 
                         }
                         break;
 

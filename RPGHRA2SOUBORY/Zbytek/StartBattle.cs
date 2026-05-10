@@ -60,7 +60,8 @@ public class Battle
                     if (strengthPotionCount > 0) dynamickeMoznosti.Add("Použít Strength Potion");
                     dynamickeMoznosti.Add("<- Zpět do boje");          
                    
-                        int volbaLekt = Moznosti.VykresliMoznosti(dynamickeMoznosti.ToArray(), "Co Použiješ?",inventory, status);
+                        int volbaLekt = Moznosti.VykresliMoznosti(dynamickeMoznosti.ToArray(), 
+                            "Co Použiješ?",inventory, status);
                         string vybranaVolba = dynamickeMoznosti[volbaLekt];
                         
                         if (vybranaVolba == "Použít Health Potion")
@@ -150,8 +151,8 @@ public class Battle
                 Console.WriteLine("\n  Stiskni klávesu..."); 
                 Console.ReadKey(true);
                 Console.Clear();
-                Character.ResetujTempDamage(player);
             }
+            Character.ResetujTempDamage(player);
         }
 
         if (enemy.Health <= 0)
