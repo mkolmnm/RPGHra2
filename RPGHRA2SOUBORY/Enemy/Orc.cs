@@ -2,7 +2,7 @@
 
 public class Orc : Enemy
 {
-    private int _damage = 8;
+    private int _damage = 12;
     public override int Damage { 
         get => _damage;
         set;

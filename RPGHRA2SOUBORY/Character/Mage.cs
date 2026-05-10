@@ -2,8 +2,8 @@
 
 public class Mage : Character
 {
-    private int _damage = 5;
-    private int _manaCost = 10;
+    private int _damage = 3;
+    private int _manaCost = 15;
     private int  _maxMana = 100;
     public int Mana { get; set; } = 100;
     public string Name { get; set; } = "Mage";

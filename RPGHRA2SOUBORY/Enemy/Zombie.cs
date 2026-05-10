@@ -2,7 +2,7 @@
 
 public class Zombie : Enemy
 {
-    private int _damage = 4;
+    private int _damage = 6;
     public override int Damage { 
         get => _damage;
         set;
@@ -22,9 +22,10 @@ public class Zombie : Enemy
         int x = rng.Next(0, 5);
         if (x == 0)//20% šance
         {
-            target.TakeDamage(Damage * 2);//max 12dmg
+            target.TakeDamage(Damage * 2);//max 12
+            return;
         }
-            target.TakeDamage(Damage);//min. 4dmg
+            target.TakeDamage(Damage);//min. 6 dmg
     }
 
 }

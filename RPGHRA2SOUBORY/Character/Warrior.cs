@@ -2,7 +2,7 @@
 
 public class Warrior : Character
 {
-    private static int rnd = new Random().Next(0, 11);
+    private static int rnd = new Random().Next(2, 6);
     private int _damage = 10;
     public override int Defence { get; set; } = rnd;
     public override int Damage { 
@@ -13,8 +13,8 @@ public class Warrior : Character
     
     public Warrior()
     {
-        _maxHealth = 100;
-        _currentHealth = 100;
+        _maxHealth = 70;
+        _currentHealth = 70;
     }
 
     protected override void OnLevelUp()
